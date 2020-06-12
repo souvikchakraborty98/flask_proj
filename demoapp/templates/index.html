@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+  <title>BMI calculator</title>
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/style.css")}}">
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+</head>
+<body class="main">
+  <h1>BMI calculator</h1>
+  <p>My content</p>
+  <a class="pure-button" href="https://souvikchakraborty98.github.io" target="_blank">Know More</a>
+
+  <div>
+    <p>Please enter weight in kilos</p>
+    <form class="pure-form" method="POST" action="/">
+    Weight:<br><br>
+    <input type="number" name="userweight"> <br><br>
+    <p>Please enter height in metres</p>
+    Height:<br><br>
+    <input type="number" name="userheight"> <br><br>
+    <button type="submit" class="pure-button pure-button-primary" value="submit">Submit</button>
+    </form>
+  </div>
+
+<br>
+
+<div>
+   {% if height %}
+     <p>Entered height: {{ height }}</p>
+  {% else %}
+     <p>Enter height</p>
+  {% endif %}
+
+  {% if weight %}
+     <p>Entered weight: {{ weight }}</p>
+  {% else %}
+     <p>Enter weight</p>
+  {% endif %}
+
+  {% if height and weight %}
+     <p><b>BMI: {{ bmi }}</b></p>
+  {% elif not height and not weight %}
+     <p><b>Enter height and weight first</b></p>
+  {% endif %}
+</div>
+</body>
